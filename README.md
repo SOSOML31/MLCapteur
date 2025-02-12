@@ -30,3 +30,35 @@ pour la Prédiction des Actions de Capteurs
 ✅ 5. Générer un fichier corrigé et le soumettre à l’API
 	•	Sauvegarde de captor_3_todo_corrected.csv
 	•	Code pour tester la soumission à l’API fourni (requests.post())
+
+
+Résumé du code :
+
+Ce script effectue une prédiction d’actions en fonction de données capteurs en utilisant un modèle de RandomForestClassifier. Voici un résumé des étapes :
+	1.	Chargement des données :
+	•	Trois fichiers CSV sont lus :
+	•	captor_1_sample_1.csv (données d’entraînement)
+	•	captor_2_with_null.csv (données avec valeurs manquantes)
+	•	captor_3_todo.csv (données à prédire)
+	2.	Exploration des données :
+	•	Affiche un aperçu de df_sample1.
+	•	Vérifie les valeurs manquantes dans df_sample2.
+	3.	Prétraitement des données :
+	•	Les valeurs manquantes des colonnes numériques (temp, sis, hygro, anem1, anem2) sont remplacées par la médiane.
+	•	La variable action_valide est convertie en valeurs numériques (A → 0, B → 1, C → 2, SB → 3).
+	•	Vérifie si action_valide est présente dans df_sample2.
+	4.	Construction du modèle de Machine Learning :
+	•	Sépare les données en train (80%) et test (20%).
+	•	Entraîne un RandomForestClassifier sur ces données.
+	5.	Évaluation du modèle :
+	•	Effectue des prédictions sur les données de test.
+	•	Affiche la précision du modèle.
+	6.	Prédiction sur les nouvelles données (df_todo) :
+	•	Applique le même prétraitement (imputation des valeurs manquantes).
+	•	Utilise le modèle entraîné pour prédire action.
+	•	Convertit les valeurs prédictives en labels (0 → A, 1 → B, etc.).
+	•	Sauvegarde le fichier final captor_3_todo_corrected.csv.
+
+Conclusion :
+
+Le script automatise le nettoyage, l’entraînement et la prédiction d’actions basées sur des mesures de capteurs, en corrigeant les valeurs manquantes et en utilisant un modèle de classification Random Forest.
