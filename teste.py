@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
@@ -44,8 +44,8 @@ y = df_sample1['action_valide']
 # Séparer les données en train et test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Entraîner un modèle RandomForestClassifier
-model = RandomForestClassifier(n_estimators=100, random_state=42)
+# Entraîner un modèle GradientBoostingClassifier
+model = GradientBoostingClassifier(n_estimators=200, learning_rate=0.1, random_state=42)
 model.fit(X_train, y_train)
 
 # Évaluer le modèle
