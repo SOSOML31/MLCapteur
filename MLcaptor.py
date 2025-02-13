@@ -5,7 +5,6 @@ from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
-# Charger les fichiers CSV
 file_sample1 = "captor_1_sample_1.csv"
 file_sample2 = "captor_2_with_null.csv"
 file_todo = "captor_3_todo.csv"
@@ -14,12 +13,10 @@ df_sample1 = pd.read_csv(file_sample1)
 df_sample2 = pd.read_csv(file_sample2)
 df_todo = pd.read_csv(file_todo)
 
-# Exploration des données
 print("Aperçu des données de sample_1:")
 print(df_sample1.head())
 
-# Vérifier les valeurs manquantes
-print("Valeurs manquantes dans sample_2:")
+print("Valeurs manquantes dans samplce_2:")
 print(df_sample2.isnull().sum())
 
 # Remplacement des valeurs manquantes par la médiane des colonnes numériques
